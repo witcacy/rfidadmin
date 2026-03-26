@@ -1,7 +1,7 @@
-using rfidbackend.Entities;
-using rfidbackend.Repositories;
+using Rfid.WebApi.Entities;
+using Rfid.WebApi.Repositories;
 
-namespace rfidbackend.Services;
+namespace Rfid.WebApi.Services;
 
 public class RoleService : IRoleService
 {

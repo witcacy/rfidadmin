@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using rfidbackend.Entities;
+using Rfid.WebApi.Entities;
 
-namespace rfidbackend.Data;
+namespace Rfid.WebApi.Data;
 
 public class RfidDbContext : DbContext
 {

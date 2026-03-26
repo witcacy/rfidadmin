@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using rfidbackend.Services;
+using Rfid.WebApi.Services;
 
-namespace rfidbackend.Controllers;
+namespace Rfid.WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

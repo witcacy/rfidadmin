@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using rfidbackend.Data;
+using Rfid.WebApi.Data;
 
 #nullable disable
 
-namespace rfidbackend.Migrations
+namespace Rfid.WebApi.Migrations
 {
     [DbContext(typeof(RfidDbContext))]
     partial class RfidDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace rfidbackend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("rfidbackend.Entities.Area", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Area", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace rfidbackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Permission", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Permission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,7 +100,7 @@ namespace rfidbackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ReasonForRequest", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ReasonForRequest", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -117,7 +117,7 @@ namespace rfidbackend.Migrations
                     b.ToTable("ReasonsForRequest");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.RfidScanRecord", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.RfidScanRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -142,7 +142,7 @@ namespace rfidbackend.Migrations
                     b.ToTable("RfidScanRecords");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Role", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -171,7 +171,7 @@ namespace rfidbackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.RolePermission", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.RolePermission", b =>
                 {
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
@@ -238,7 +238,7 @@ namespace rfidbackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Ticket", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Ticket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -283,7 +283,7 @@ namespace rfidbackend.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Tool", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Tool", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -327,7 +327,7 @@ namespace rfidbackend.Migrations
                     b.ToTable("Tools");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ToolAssignment", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ToolAssignment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -371,7 +371,7 @@ namespace rfidbackend.Migrations
                     b.ToTable("ToolAssignments");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ToolRemoval", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ToolRemoval", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -401,7 +401,7 @@ namespace rfidbackend.Migrations
                     b.ToTable("ToolRemovals");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ToolType", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ToolType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -418,7 +418,7 @@ namespace rfidbackend.Migrations
                     b.ToTable("ToolTypes");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.User", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -464,15 +464,15 @@ namespace rfidbackend.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.RolePermission", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.RolePermission", b =>
                 {
-                    b.HasOne("rfidbackend.Entities.Permission", "Permission")
+                    b.HasOne("Rfid.WebApi.Entities.Permission", "Permission")
                         .WithMany("RolePermissions")
                         .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("rfidbackend.Entities.Role", "Role")
+                    b.HasOne("Rfid.WebApi.Entities.Role", "Role")
                         .WithMany("RolePermissions")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -483,27 +483,27 @@ namespace rfidbackend.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Ticket", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Ticket", b =>
                 {
-                    b.HasOne("rfidbackend.Entities.Area", "Area")
+                    b.HasOne("Rfid.WebApi.Entities.Area", "Area")
                         .WithMany("Tickets")
                         .HasForeignKey("AreaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("rfidbackend.Entities.User", "CreatedByUser")
+                    b.HasOne("Rfid.WebApi.Entities.User", "CreatedByUser")
                         .WithMany("Tickets")
                         .HasForeignKey("CreatedByUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("rfidbackend.Entities.ReasonForRequest", "ReasonForRequest")
+                    b.HasOne("Rfid.WebApi.Entities.ReasonForRequest", "ReasonForRequest")
                         .WithMany("Tickets")
                         .HasForeignKey("ReasonForRequestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("rfidbackend.Entities.ToolType", "ToolType")
+                    b.HasOne("Rfid.WebApi.Entities.ToolType", "ToolType")
                         .WithMany("Tickets")
                         .HasForeignKey("ToolTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -518,15 +518,15 @@ namespace rfidbackend.Migrations
                     b.Navigation("ToolType");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Tool", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Tool", b =>
                 {
-                    b.HasOne("rfidbackend.Entities.Area", "Area")
+                    b.HasOne("Rfid.WebApi.Entities.Area", "Area")
                         .WithMany("Tools")
                         .HasForeignKey("AreaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("rfidbackend.Entities.ToolType", "ToolType")
+                    b.HasOne("Rfid.WebApi.Entities.ToolType", "ToolType")
                         .WithMany("Tools")
                         .HasForeignKey("ToolTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -537,19 +537,19 @@ namespace rfidbackend.Migrations
                     b.Navigation("ToolType");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ToolAssignment", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ToolAssignment", b =>
                 {
-                    b.HasOne("rfidbackend.Entities.Ticket", "Ticket")
+                    b.HasOne("Rfid.WebApi.Entities.Ticket", "Ticket")
                         .WithOne("ToolAssignment")
-                        .HasForeignKey("rfidbackend.Entities.ToolAssignment", "TicketId");
+                        .HasForeignKey("Rfid.WebApi.Entities.ToolAssignment", "TicketId");
 
-                    b.HasOne("rfidbackend.Entities.Tool", "Tool")
+                    b.HasOne("Rfid.WebApi.Entities.Tool", "Tool")
                         .WithMany("ToolAssignments")
                         .HasForeignKey("ToolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("rfidbackend.Entities.User", "User")
+                    b.HasOne("Rfid.WebApi.Entities.User", "User")
                         .WithMany("ToolAssignments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -562,15 +562,15 @@ namespace rfidbackend.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ToolRemoval", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ToolRemoval", b =>
                 {
-                    b.HasOne("rfidbackend.Entities.ReasonForRequest", "ReasonForRequest")
+                    b.HasOne("Rfid.WebApi.Entities.ReasonForRequest", "ReasonForRequest")
                         .WithMany("ToolRemovals")
                         .HasForeignKey("ReasonForRequestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("rfidbackend.Entities.Tool", "Tool")
+                    b.HasOne("Rfid.WebApi.Entities.Tool", "Tool")
                         .WithMany("ToolRemovals")
                         .HasForeignKey("ToolId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -581,9 +581,9 @@ namespace rfidbackend.Migrations
                     b.Navigation("Tool");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.User", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.User", b =>
                 {
-                    b.HasOne("rfidbackend.Entities.Role", "Role")
+                    b.HasOne("Rfid.WebApi.Entities.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -592,52 +592,52 @@ namespace rfidbackend.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Area", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Area", b =>
                 {
                     b.Navigation("Tickets");
 
                     b.Navigation("Tools");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Permission", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Permission", b =>
                 {
                     b.Navigation("RolePermissions");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ReasonForRequest", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ReasonForRequest", b =>
                 {
                     b.Navigation("Tickets");
 
                     b.Navigation("ToolRemovals");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Role", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Role", b =>
                 {
                     b.Navigation("RolePermissions");
 
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Ticket", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Ticket", b =>
                 {
                     b.Navigation("ToolAssignment");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.Tool", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.Tool", b =>
                 {
                     b.Navigation("ToolAssignments");
 
                     b.Navigation("ToolRemovals");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.ToolType", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.ToolType", b =>
                 {
                     b.Navigation("Tickets");
 
                     b.Navigation("Tools");
                 });
 
-            modelBuilder.Entity("rfidbackend.Entities.User", b =>
+            modelBuilder.Entity("Rfid.WebApi.Entities.User", b =>
                 {
                     b.Navigation("Tickets");
 

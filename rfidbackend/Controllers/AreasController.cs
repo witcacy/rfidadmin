@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using rfidbackend.DTOs;
-using rfidbackend.Entities;
-using rfidbackend.Services;
+using Rfid.WebApi.DTOs;
+using Rfid.WebApi.Entities;
+using Rfid.WebApi.Services;
 
-namespace rfidbackend.Controllers;
+namespace Rfid.WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

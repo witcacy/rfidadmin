@@ -1,6 +1,6 @@
-using rfidbackend.Repositories;
+using Rfid.WebApi.Repositories;
 
-namespace rfidbackend.Services;
+namespace Rfid.WebApi.Services;
 
 public class CatalogService<T> : ICatalogService<T> where T : class
 {

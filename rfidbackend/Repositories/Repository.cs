@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using rfidbackend.Data;
+using Rfid.WebApi.Data;
 
-namespace rfidbackend.Repositories;
+namespace Rfid.WebApi.Repositories;
 
 public class Repository<T> : IRepository<T> where T : class
 {

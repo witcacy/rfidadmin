@@ -1,4 +1,4 @@
-namespace rfidbackend.Services;
+namespace Rfid.WebApi.Services;
 
 public interface ICatalogService<T> where T : class
 {

@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using rfidbackend.Data;
-using rfidbackend.Entities;
+using Rfid.WebApi.Data;
+using Rfid.WebApi.Entities;
 
-namespace rfidbackend.Repositories;
+namespace Rfid.WebApi.Repositories;
 
 public class ToolAssignmentRepository : Repository<ToolAssignment>, IToolAssignmentRepository
 {

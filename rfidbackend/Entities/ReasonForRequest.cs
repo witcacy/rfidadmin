@@ -1,4 +1,4 @@
-namespace rfidbackend.Entities;
+namespace Rfid.WebApi.Entities;
 
 public class ReasonForRequest
 {

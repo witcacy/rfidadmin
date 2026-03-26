@@ -1,6 +1,6 @@
-using rfidbackend.Entities;
+using Rfid.WebApi.Entities;
 
-namespace rfidbackend.Services;
+namespace Rfid.WebApi.Services;
 
 public interface ITicketService
 {

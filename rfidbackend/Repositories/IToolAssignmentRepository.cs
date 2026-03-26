@@ -1,6 +1,6 @@
-using rfidbackend.Entities;
+using Rfid.WebApi.Entities;
 
-namespace rfidbackend.Repositories;
+namespace Rfid.WebApi.Repositories;
 
 public interface IToolAssignmentRepository : IRepository<ToolAssignment>
 {

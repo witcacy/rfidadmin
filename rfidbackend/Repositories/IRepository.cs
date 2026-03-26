@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace rfidbackend.Repositories;
+namespace Rfid.WebApi.Repositories;
 
 public interface IRepository<T> where T : class
 {

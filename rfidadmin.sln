@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "rfidadmin", "rfidadmin\rfidadmin.esproj", "{19956447-041E-24E4-99B8-1F2AC083DD1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rfidbackend", "rfidbackend\rfidbackend.csproj", "{6F676D4E-E3EB-4671-8F19-65376E7650D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfid.WebApi", "rfidbackend\Rfid.WebApi.csproj", "{6F676D4E-E3EB-4671-8F19-65376E7650D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rfidlistenerms", "rfidlistenerms\rfidlistenerms.csproj", "{2620A120-2966-4302-9B17-912A5E451D7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTTEmulator", "..\MQTTEmulator\MQTTEmulator.csproj", "{FE8A5575-B055-7D0D-E38A-0E9682576F95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mqttserver", "mqttserver\mqttserver.csproj", "{FBC03A51-36B8-4AD2-B007-36E26FE61AEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfid.IngestionService", "Rfid.IngestionService\Rfid.IngestionService.csproj", "{A1B7AAA9-3049-4755-ABAA-881E17BC8F97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +27,14 @@ Global
 		{6F676D4E-E3EB-4671-8F19-65376E7650D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F676D4E-E3EB-4671-8F19-65376E7650D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F676D4E-E3EB-4671-8F19-65376E7650D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2620A120-2966-4302-9B17-912A5E451D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2620A120-2966-4302-9B17-912A5E451D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2620A120-2966-4302-9B17-912A5E451D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2620A120-2966-4302-9B17-912A5E451D7D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBC03A51-36B8-4AD2-B007-36E26FE61AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBC03A51-36B8-4AD2-B007-36E26FE61AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBC03A51-36B8-4AD2-B007-36E26FE61AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBC03A51-36B8-4AD2-B007-36E26FE61AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE8A5575-B055-7D0D-E38A-0E9682576F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8A5575-B055-7D0D-E38A-0E9682576F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8A5575-B055-7D0D-E38A-0E9682576F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8A5575-B055-7D0D-E38A-0E9682576F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B7AAA9-3049-4755-ABAA-881E17BC8F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B7AAA9-3049-4755-ABAA-881E17BC8F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B7AAA9-3049-4755-ABAA-881E17BC8F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B7AAA9-3049-4755-ABAA-881E17BC8F97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

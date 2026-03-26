@@ -1,26 +1,26 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using rfidbackend.Data;
-using rfidbackend.Entities;
-using rfidbackend.Repositories;
-using rfidbackend.Services;
+using Rfid.WebApi.Data;
+using Rfid.WebApi.Entities;
+using Rfid.WebApi.Repositories;
+using Rfid.WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<RfidDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("RfidDb")));
-var cs = builder.Configuration.GetConnectionString("RfidDb");
-try
-{
-    using var sql = new SqlConnection(cs);
-    sql.Open();
-    Console.WriteLine("RfidDb: Conexión a BD OK.");
-}
-catch (Exception ex)
-{
-    Console.WriteLine($"RfidDb: ERROR al conectar a BD: {ex.Message}");
-    Environment.Exit(1); // detiene la app si no hay conexión
-}
+//var cs = builder.Configuration.GetConnectionString("RfidDb");
+//try
+//{
+//    using var sql = new SqlConnection(cs);
+//    sql.Open();
+//    Console.WriteLine("RfidDb: Conexión a BD OK.");
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine($"RfidDb: ERROR al conectar a BD: {ex.Message}");
+//    Environment.Exit(1); // detiene la app si no hay conexión
+//}
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -44,6 +44,18 @@ builder.Services.AddControllers()
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        var origins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
+            ?? ["http://localhost:5173"];
+        policy.WithOrigins(origins)
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -57,6 +69,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 
